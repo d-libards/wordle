@@ -22,7 +22,6 @@ function App() {
     const words = response.data;
     const randomIndex = Math.floor(Math.random() * words.length);
     const word = words[randomIndex].word;
-    console.log(word);
     setCorrectWord(word);
   }
 
@@ -111,10 +110,6 @@ function App() {
       document.removeEventListener('keydown', handleKeydown);
     };
   }, [handleAlphabet, handleEnter, handleBackspace, gameOver]);
-
-  useEffect(() => {
-    console.log(currentWord, letterCount);
-  }, [currentWord]);
 
   function handleReset() {
     setGuessedWords(new Array(TOTAL_GUESSES).fill('     '));
