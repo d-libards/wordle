@@ -187,12 +187,8 @@ function LetterBox({ letter, correctLocation, correctLetter }) {
   return (
     <div
       className={`size-24 border-4 text-4xl font-bold border-black bg-white text-black rounded-xl uppercase grid place-items-center ${
-        correctLocation
-          ? 'bg-green-300'
-          : correctLetter
-          ? 'bg-yellow-300'
-          : 'bg-white'
-      }`}
+        correctLocation ? 'bg-green-300' : 'bg-white'
+      } ${correctLetter ? 'bg-yellow-300' : 'bg-white'}`}
     >
       {letter}
     </div>
