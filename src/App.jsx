@@ -22,6 +22,7 @@ function App() {
     const words = response.data;
     const randomIndex = Math.floor(Math.random() * words.length);
     const word = words[randomIndex].word;
+    console.log(word);
     setCorrectWord(word);
   }
 
@@ -172,8 +173,8 @@ function WordLine({ word, correctWord, revealed }) {
         return (
           <LetterBox
             key={index}
-            green={hasCorrectLocation && hasCorrectLetter && revealed}
-            yellow={!hasCorrectLocation && hasCorrectLetter && revealed}
+            correctLocation={hasCorrectLocation && hasCorrectLetter && revealed}
+            correctLetter={!hasCorrectLocation && hasCorrectLetter && revealed}
             letter={letter}
           />
         );
@@ -182,11 +183,15 @@ function WordLine({ word, correctWord, revealed }) {
   );
 }
 
-function LetterBox({ letter, green, yellow }) {
+function LetterBox({ letter, correctLocation, correctLetter }) {
   return (
     <div
       className={`size-24 border-4 text-4xl font-bold border-black bg-white text-black rounded-xl uppercase grid place-items-center ${
-        green ? 'bg-green-500' : yellow ? 'bg-yellow-500' : ''
+        correctLocation
+          ? 'bg-green-300'
+          : correctLetter
+          ? 'bg-yellow-300'
+          : 'bg-white'
       }`}
     >
       {letter}
