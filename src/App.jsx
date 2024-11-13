@@ -39,7 +39,7 @@ function App() {
 
     if (currentWord !== correctWord && wordCount === TOTAL_GUESSES - 1) {
       setGameOver(true);
-      toast.error("YOU'VE LOST");
+      toast.error(`YOU'VE LOST! The word is ${correctWord}`);
       return;
     }
 
